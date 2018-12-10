@@ -46,7 +46,8 @@ class HighScorePage extends Component {
     }
 
 
-    // Dont know why all text is bold - Some bootstrap thing
+    // Dont know why all text is bold - Some bootstrap thing 
+    // edit - it was th instead of td
     getScoresUI() {
         let scoresUI = `<table class="table">\n`;
         scoresUI += `<thead>
