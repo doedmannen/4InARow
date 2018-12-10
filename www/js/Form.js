@@ -59,6 +59,7 @@ class Form extends Component{
         let player2 = new Player(p2);
 
         this.gamePage.game = new Game(player1, player2);
+        this.gamePage.render();
 
     }
 
