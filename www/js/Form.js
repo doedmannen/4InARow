@@ -3,10 +3,29 @@ class Form extends Component{
         super();
         this.addEvents({
             'click .btn-start': 'readValues',
+            'keyup .name-player1': 'addOnEnter',
+            'keyup .name-player2': 'addOnEnter'
         });
         this.gamePage = game;
-        //this.player1 = {};
-        //this.player2 = {};
+    }
+
+    addOnEnter(e){
+        if(e.which === 13){
+          this.readValues();
+        }
+      }
+
+    readValues(){
+        let p1 = {};
+        let p2 = {};
+
+        p1.name = this.baseEl.find('.name-player1').val();
+        p2.name = this.baseEl.find('.name-player2').val();
+
+        p1.type = document.querySelector('.form-player1 input[name="player1-type"]:checked').value;
+        p2.type = document.querySelector('.form-player2 input[name="player2-type"]:checked').value;
+
+        this.validate(p1,p2);
     }
 
     validate(p1, p2){
@@ -30,20 +49,6 @@ class Form extends Component{
 
         if(validP1 && validP2)
         this.createGame(p1, p2);
-
-    }
-
-    readValues(){
-        let p1 = {};
-        let p2 = {};
-
-        p1.name = this.baseEl.find('.name-player1').val();
-        p2.name = this.baseEl.find('.name-player2').val();
-
-        p1.type = document.querySelector('.form-player1 input[name="player1-type"]:checked').value;
-        p2.type = document.querySelector('.form-player2 input[name="player2-type"]:checked').value;
-
-        this.validate(p1,p2);
     }
 
     createGame(p1, p2){
@@ -54,7 +59,7 @@ class Form extends Component{
         let player2 = new Player(p2);
 
         this.gamePage.game = new Game(player1, player2);
-        
+
     }
 
 
