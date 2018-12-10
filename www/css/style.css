@@ -73,10 +73,10 @@ main {
     height: 100%;
 }
 
-.testClass{
+.board-display{
     /*Ändra px till samma för att anpassa storlek. Detta är för att mellanrummen mellan cirklarna ska vara 0.*/
-    height: calc(6 * 100px);
-    width: calc(7 * 100px);
+    height: calc(6 * 10vw);
+    width: calc(7 * 10vw);
 }
 
 .player-display{
