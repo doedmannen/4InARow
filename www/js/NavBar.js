@@ -6,6 +6,7 @@ class NavBar extends Component {
       new NavItem('Start', '/'),
       new NavItem('HighScores', '/highscores'),
       new NavItem('Rules', '/rules')
+      new NavItem('Play Game', '/gamepage'),
     ];
   }
 
