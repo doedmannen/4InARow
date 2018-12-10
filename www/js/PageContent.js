@@ -9,6 +9,4 @@ class PageContent extends Component {
     this.rulePage = new RulePage();
   }
 
-
-
 }
