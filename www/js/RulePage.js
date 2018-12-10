@@ -6,4 +6,5 @@ class RulePage extends Component{
         this.addRoute('/rules', 'Rules');
     }
 
+
 }
