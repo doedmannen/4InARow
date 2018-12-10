@@ -1,6 +1,8 @@
 <div>
-    <h1>High Scores</h1>
-    <button type="button" class="switch-mode-btn btn btn-primary">${(this.showOnlyTen === true) ? `Show all` : `Show Top10`}</button>
+    <div class="d-flex justify-content-between mb-2">
+        <h1>High Scores</h1>
+        <button type="button" class="switch-mode-btn btn btn-primary">${(this.showOnlyTen === true) ? `Show all` : `Show Top10`}</button>
+    </div>
     <div>
         ${this.getScoresUI()}
     </div>
