@@ -1,4 +1,8 @@
 <div>
     <h1>High Scores</h1>
+    <button type="button" class="switch-mode-btn btn btn-primary">${(this.showOnlyTen === true) ? `Show all` : `Show Top Ten`}</button>
+    <div>
+        ${this.getScoresUI()}
+    </div>
 
 </div>
