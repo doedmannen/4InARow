@@ -1,18 +1,59 @@
 body > div {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1;
+    flex: 1;
 }
 
 .action {
-  cursor:pointer;
+    cursor: pointer;
 }
 
 .disabled {
-  opacity: 0.2;
-  cursor: default;
+    opacity: 0.2;
+    cursor: default;
+}
+
+.startPageWelcome {
+    border: black 10px;
+    height: 50vh;
+    justify-content: space-between;
+}
+
+.startPageWelcome section {
+    border: 2px black solid;
+}
+
+.otherGames {
+    height: 30vh;
+    margin-top: 2vh;
+}
+
+.startPageFirst {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.startPageFirst button{
+    align-self: flex-end;
+    width: fit-content;
+}
+
+.startPageSecond {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.startPageSecondImage{
+    height: 100%;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("https://i.ebayimg.com/images/i/153118637188-0-1/s-l1000.jpg");
 }
