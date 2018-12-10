@@ -3,7 +3,7 @@ class Board extends Component {
     constructor() {
         super();
         this.buildBoard();
-
+        this.gameBoard = [];
     }
 
     buildBoard() {
@@ -16,18 +16,11 @@ class Board extends Component {
             this.gameBoard.push(rowArr);
         }
     }
-    //
-    drawBoard() {
-        for (let row = 0; row < 6; row++) {
-            for (let col = 0; col < 7; col++) {
-                console.log("hej");
-                this.baseEl.find(".asd").append(`<div>hej</div>`);
-            }
-        }
-    }
-
     columnClicked(col) {
         alert('You clicked column ' + col);
     }
 
+    getPossibleMoves(){
+           
+    }
 }

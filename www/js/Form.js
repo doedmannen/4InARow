@@ -51,6 +51,21 @@ class Form extends Component{
         this.createGame(p1, p2);
     }
 
+    readValues(){
+        let p1 = {};
+        let p2 = {};
+
+        p1.name = this.baseEl.find('.name-player1').val();
+        p2.name = this.baseEl.find('.name-player2').val();
+
+
+        // Bots have to see gameboard.   
+        p1.type = document.querySelector('.form-player1 input[name="player1-type"]:checked').value;
+        p2.type = document.querySelector('.form-player2 input[name="player2-type"]:checked').value;
+
+        this.validate(p1,p2);
+    }
+
     createGame(p1, p2){
         p1.color = 'red';
         p2.color = 'yellow';
@@ -62,6 +77,4 @@ class Form extends Component{
         this.gamePage.render();
 
     }
-
-
 }
