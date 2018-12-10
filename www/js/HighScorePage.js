@@ -57,6 +57,7 @@ class HighScorePage extends Component{
         if(this.showOnlyTen && this.scores.length > 10){
             let i = 0;
             while( i < 10){
+                // Theres some problem with flex-fill names are not centered
                 scoresUI += `<li class="list-group-item d-flex ${i%2 === 0 ? `bg-light` : ``}">
                     <span class="flex-fill">${i+1}.</span> 
                     <span class="flex-fill text-center">${this.scores[i].name}</span>
