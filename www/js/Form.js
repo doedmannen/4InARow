@@ -11,8 +11,8 @@ class Form extends Component{
     }
 
     validate(p1, p2){
-        
-        if(p1.name >= 20 || p1.name <= 2 ||){
+
+        if(p1.name >= 20 || p1.name <= 2){
             console.log('p1 fel');
             return false;
         }
