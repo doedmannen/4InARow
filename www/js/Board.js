@@ -2,12 +2,11 @@ class Board extends Component {
 
     constructor() {
         super();
-        this.buildBoard();
         this.gameBoard = [];
+        this.buildBoard();
     }
 
     buildBoard() {
-        this.gameBoard = [];
         for (let row = 0; row < 6; row++) {
             let rowArr = [];
             for (let col = 0; col < 7; col++) {
@@ -21,6 +20,6 @@ class Board extends Component {
     }
 
     getPossibleMoves(){
-           
+
     }
 }
