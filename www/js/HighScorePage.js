@@ -49,20 +49,30 @@ class HighScorePage extends Component{
     // generating the HTML code for highscores
     getScoresUI(){
         let scoresUI = `<ul class="list-group">`;
+        scoresUI += `<li class="list-group-item d-flex bg-secondary text-white">
+                    <span class="flex-fill">#.</span> 
+                    <span class="flex-fill text-center">Name</span>
+                    <span class="flex-fill text-right">Score</span></
+                    li> \n`;
         if(this.showOnlyTen && this.scores.length > 10){
             let i = 0;
             while( i < 10){
-                scoresUI += `<li class="list-group-item d-flex justify-content-between">
-                    <span>${i+1}.</span> 
-                    <span>${this.scores[i].name}</span>
-                    <span> ${this.scores[i].score}</span></
+                // Theres some problem with flex-fill names are not centered
+                scoresUI += `<li class="list-group-item d-flex ${i%2 === 0 ? `bg-light` : ``}">
+                    <span class="flex-fill">${i+1}.</span> 
+                    <span class="flex-fill text-center">${this.scores[i].name}</span>
+                    <span class="flex-fill text-right"> ${this.scores[i].score}</span></
                     li> \n`;
                 i++;    
             }
         }
         else{
             this.scores.forEach((el, i) => {
-                scoresUI += `<li class="list-group-item">${i+1}. ${this.scores[i].name} - ${this.scores[i].score}</li> \n`;
+                scoresUI += `<li class="list-group-item d-flex ${i%2 === 0 ? `bg-light` : ``}">
+                    <span class="flex-fill">${i+1}.</span> 
+                    <span class="flex-fill text-center">${this.scores[i].name}</span>
+                    <span class="flex-fill text-right"> ${this.scores[i].score}</span></
+                    li> \n`;
             });
         }
         scoresUI += `</ul>`
