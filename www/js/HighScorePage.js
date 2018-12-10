@@ -1,6 +1,6 @@
 class HighScorePage extends Component{
 
-
+    // propably need some optimization - scores loads up each team user switches between top10/all
     constructor(){
         super();
         this.addRoute('/highscores', 'HighScores');
@@ -48,19 +48,24 @@ class HighScorePage extends Component{
 
     // generating the HTML code for highscores
     getScoresUI(){
-        let scoresUI = ``;
+        let scoresUI = `<ul class="list-group">`;
         if(this.showOnlyTen && this.scores.length > 10){
             let i = 0;
             while( i < 10){
-                scoresUI += `<p>${this.scores[i].name} - ${this.scores[i].score}</p> \n`;
+                scoresUI += `<li class="list-group-item d-flex justify-content-between">
+                    <span>${i+1}.</span> 
+                    <span>${this.scores[i].name}</span>
+                    <span> ${this.scores[i].score}</span></
+                    li> \n`;
                 i++;    
             }
         }
         else{
-            this.scores.forEach(el => {
-                scoresUI += `<p>${el.name} - ${el.score}</p> \n`;
+            this.scores.forEach((el, i) => {
+                scoresUI += `<li class="list-group-item">${i+1}. ${this.scores[i].name} - ${this.scores[i].score}</li> \n`;
             });
         }
+        scoresUI += `</ul>`
         return scoresUI;
     }
 }
