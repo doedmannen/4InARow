@@ -3,6 +3,7 @@ class GamePage extends Component{
         super();
         this.addRoute('/gamepage', 'Play');
         this.form = new Form(this);
+        this.board = new Board();
     }
 
 

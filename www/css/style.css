@@ -57,6 +57,27 @@ main {
     background-repeat: no-repeat;
     background-image: url("https://i.ebayimg.com/images/i/153118637188-0-1/s-l1000.jpg");
 }
+.board{
+    display: flex;
+    /*align-items: self-start;*/
+    /*flex-direction: column;*/
+    height: 100%;
+}
+
+.slotItem{
+    width: calc(100% / 7);
+    height: calc(100% / 6);
+}
+
+.rounded-circle{
+    height: 100%;
+}
+
+.testClass{
+    /*Ändra px till samma för att anpassa storlek. Detta är för att mellanrummen mellan cirklarna ska vara 0.*/
+    height: calc(6 * 100px);
+    width: calc(7 * 100px);
+}
 
 .player-display{
   font-size: 1rem;
