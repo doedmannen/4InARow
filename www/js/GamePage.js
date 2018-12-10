@@ -6,8 +6,8 @@ class GamePage extends Component{
         this.board = new Board();
     }
 
-
-    // takes an object with name and score variable
+    
+    // takes an object with name and score property
     async saveScore(score){
         let scores = await JSON._load('scores.json');
         scores.push(score);
