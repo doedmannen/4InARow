@@ -1,12 +1,16 @@
-<section class="row">
+<section>
 
-  <section class="col-9">
-    ${this.board}
-  </section>
-
-  <section class="col-3">
-    ${this.players[0]}
-    ${this.players[1]}
+  <section class="row">
+    <section class="col-6 text-center">
+      <span class="player-display mb-4 badge badge-danger">
+        ${this.players[0].name}
+      </span>
+    </section>
+    <section class="col-6 text-center">
+      <span class="player-display mb-4 badge badge-warning">
+        ${this.players[1].name}
+      </span>
+    </section>
   </section>
 
 </section>

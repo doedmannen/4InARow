@@ -57,3 +57,7 @@ main {
     background-repeat: no-repeat;
     background-image: url("https://i.ebayimg.com/images/i/153118637188-0-1/s-l1000.jpg");
 }
+
+.player-display{
+  font-size: 1rem;
+}
