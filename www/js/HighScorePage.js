@@ -5,9 +5,13 @@ class HighScorePage extends Component{
         super();
         this.addRoute('/highscores', 'HighScores');
         // boolean for switching between only ten HighScores/All HighScores
-        let showOnlyTen = false;
+        this.showOnlyTen = true;
         this.scores = [];
         this.updateScore();
+        this.addEvents({
+            // event for switching between all scores / top ten
+            'click .switch-mode-btn' : 'switchMode'
+        });
     }
 
     // Bubble Sort
@@ -35,14 +39,28 @@ class HighScorePage extends Component{
         this.render();
     }
 
+    // switching between all scores / top ten
+    switchMode(){
+        this.showOnlyTen = !this.showOnlyTen;
+        this.updateScore();
+    }
+
 
     // generating the HTML code for highscores
     getScoresUI(){
         let scoresUI = ``;
-        this.scores.forEach(el => {
-            scoresUI += `<p>${el.name} - ${el.score}</p> \n`;
-        });
-
+        if(this.showOnlyTen && this.scores.length > 10){
+            let i = 0;
+            while( i < 10){
+                scoresUI += `<p>${this.scores[i].name} - ${this.scores[i].score}</p> \n`;
+                i++;    
+            }
+        }
+        else{
+            this.scores.forEach(el => {
+                scoresUI += `<p>${el.name} - ${el.score}</p> \n`;
+            });
+        }
         return scoresUI;
     }
 }
