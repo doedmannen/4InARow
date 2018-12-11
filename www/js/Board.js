@@ -10,7 +10,7 @@ class Board extends Component {
         for (let col = 0; col < 7; col++) {
             let colArr = [];
             for (let row = 0; row < 6; row++) {
-                colArr.push(new Slot(this, row, col, { color: 'red' }));
+                colArr.push(new Slot(this, row, col));
             }
             this.gameBoard.push(colArr);
         }

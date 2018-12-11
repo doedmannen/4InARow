@@ -1,15 +1,12 @@
 class Slot extends Component {
 
 
-    constructor(board, row, col, player=null) {
+    constructor(board, row, col) {
         super();
         this.board = board;
         this.row = row;
         this.col = col;
-        this.player = player;
-        if(player !== null){
-            this.color = player.color;
-        }
+        this.player = null;
         this.addEvents({
              'click div': 'slotClicked'
         });
@@ -17,8 +14,8 @@ class Slot extends Component {
 
     slotClicked(e) {
         e.stopPropagation();
-        if(this.player != null){
+        // if(this.player != null){
              this.board.slotClicked(this.col, this.row);
-        }
+        // }
     }
-}   
+}
