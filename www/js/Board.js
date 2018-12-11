@@ -1,7 +1,8 @@
 class Board extends Component {
 
-    constructor() {
+    constructor(game) {
         super();
+        this.game = game;
         this.gameBoard = [];
         this.buildBoard();
     }
@@ -15,15 +16,26 @@ class Board extends Component {
             this.gameBoard.push(colArr);
         }
     }
-    columnClicked(col) {
-        alert('You clicked column ' + col);
-    }
+    
 
-    getPossibleMoves() {
+    // check if for the wining move
+    validate(slot) {
 
     }
 
     slotClicked(col, row) {
-        alert('You clicked column ' + col + ', row ' + row);
+        this.placeDisc(col, this.game.players[0]);
+    }
+
+    // placing discs the board
+    placeDisc(col, player){
+        for(let i = 0; i < this.gameBoard[col].length; i++){
+            if(!this.gameBoard[col][i].player){
+                this.gameBoard[col][i].player = player;
+                this.gameBoard[col][i].render();
+                return true;
+            }
+        }
+        return false;
     }
 }

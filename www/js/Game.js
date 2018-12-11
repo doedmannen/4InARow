@@ -4,7 +4,7 @@ class Game extends Component{
     constructor(playerOne, playerTwo){
         super();
         this.players = [playerOne, playerTwo];
-        this.board = new Board();
+        this.board = new Board(this);
         this.turn = 0;
         this.discs = 42;
         this.gameOver = false;
