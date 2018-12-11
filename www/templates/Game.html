@@ -2,22 +2,10 @@
 
   <section class="row">
     <section class="col-6 text-center">
-      ${this.players[0] === (this.currentPlayer()) ? `
-      <span class="player-display mb-4 rounded-circle badge badge-success">&nbsp;</span>
-        ` : ` `}
-      <span class="player-display mb-4 badge badge-danger">
-        ${this.players[0].type  === 'human' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>' }
-        ${this.players[0].name}
-      </span>
+      ${this.players[0]}
     </section>
     <section class="col-6 text-center">
-      ${this.players[1] === (this.currentPlayer()) ? `
-      <span class="player-display mb-4 rounded-circle badge badge-success">&nbsp;</span>
-        ` : ``}
-      <span class="player-display mb-4 badge badge-warning">
-        ${this.players[1].type  === 'human' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>'}
-        ${this.players[1].name}
-      </span>
+      ${this.players[1]}
     </section>
   </section>
 

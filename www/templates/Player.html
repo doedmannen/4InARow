@@ -1,0 +1,9 @@
+<span>
+  ${this === (this.game.currentPlayer()) ? `
+  <span class="player-display mb-4 rounded-circle badge badge-success">&nbsp;</span>
+    ` : ` `}
+  <span class="player-display mb-4 badge ${this.game.players[0] === this ? `badge-danger` : `badge-warning`}">
+    ${this.type  === 'human' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>' }
+    ${this.name}
+  </span>
+</span>

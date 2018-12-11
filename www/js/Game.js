@@ -4,6 +4,8 @@ class Game extends Component{
     constructor(playerOne, playerTwo){
         super();
         this.players = [playerOne, playerTwo];
+        this.players[0].game = this;
+        this.players[1].game = this;
         this.board = new Board(this);
         this.turn = 0;
         this.discs = 42;
@@ -30,6 +32,8 @@ class Game extends Component{
         this.discs--;
         this.turn++;
         validSlot.render();
+        this.players[0].render();
+        this.players[1].render();
 
         // Check with board if it was a winning move
         let validatedTurn = this.board.validate(validSlot);
