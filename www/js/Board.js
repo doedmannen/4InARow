@@ -7,19 +7,23 @@ class Board extends Component {
     }
 
     buildBoard() {
-        for (let row = 0; row < 7; row++) {
-            let rowArr = [];
-            for (let col = 0; col < 6; col++) {
-                rowArr.push(new Slot(this, row, col, {color:"red"}));
+        for (let col = 0; col < 7; col++) {
+            let colArr = [];
+            for (let row = 0; row < 6; row++) {
+                colArr.push(new Slot(this, row, col, { color: 'red' }));
             }
-            this.gameBoard.push(rowArr);
+            this.gameBoard.push(colArr);
         }
     }
     columnClicked(col) {
         alert('You clicked column ' + col);
     }
 
-    getPossibleMoves(){
+    getPossibleMoves() {
 
+    }
+
+    slotClicked(col, row) {
+        alert('You clicked column ' + col + ', row ' + row);
     }
 }
