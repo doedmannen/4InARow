@@ -1,6 +1,7 @@
 class HighScorePage extends Component {
 
     // propably need some optimization - scores loads up each team user switches between top10/all
+    // edit - fixed, added a refresh button
     constructor() {
         super();
         this.addRoute('/highscores', 'HighScores');
@@ -10,7 +11,8 @@ class HighScorePage extends Component {
         this.updateScore();
         this.addEvents({
             // event for switching between all scores / top ten
-            'click .switch-mode-btn': 'switchMode'
+            'click .switch-mode-btn': 'switchMode',
+            'click .refresh-btn' : 'updateScore'
         });
     }
 
@@ -34,6 +36,7 @@ class HighScorePage extends Component {
 
     // loading up json file, converting into an array, sorting and displaying it on the page
     async updateScore() {
+        console.log('score updated');
         this.scores = await JSON._load('scores.json');
         this.bubble(this.scores);
         this.render();
@@ -42,7 +45,7 @@ class HighScorePage extends Component {
     // switching between all scores / top ten
     switchMode() {
         this.showOnlyTen = !this.showOnlyTen;
-        this.updateScore();
+        this.render();
     }
 
 
