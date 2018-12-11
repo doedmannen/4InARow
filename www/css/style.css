@@ -58,14 +58,15 @@ main {
     background-image: url("https://i.ebayimg.com/images/i/153118637188-0-1/s-l1000.jpg");
 }
 .board{
-    display: flex;
+    /* display: flex; */
     /*align-items: self-start;*/
     /*flex-direction: column;*/
     height: 100%;
 }
 
+
 .slotItem{
-    width: calc(100% / 7);
+    width: 100%;  /* calc(100% / 7); */
     height: calc(100% / 6);
 }
 
@@ -82,3 +83,13 @@ main {
 .player-display{
   font-size: 1rem;
 }
+
+.column{
+width: calc(100% / 7);
+}
+
+.column:hover{
+    background-color: blue;
+}
+
+
