@@ -5,7 +5,7 @@ class Game extends Component{
         super();
         this.players = [playerOne, playerTwo];
         this.board = new Board();
-        this.turn = 1;
+        this.turn = 0;
         this.discs = 42;
         this.gameOver = false;
         this.winner;
@@ -13,8 +13,8 @@ class Game extends Component{
 
     currentPlayer(){
       // Decides whos turn it is
-      playerTurn = this.turn % 2;
-      currentPlayer = this.players[playerTurn];
+      let playerTurn = (this.turn % 2);
+      let currentPlayer = this.players[playerTurn];
       return currentPlayer;
     }
 
