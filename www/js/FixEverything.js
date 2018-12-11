@@ -1,8 +1,13 @@
 class FixEverything{
   static fixBoardSize(){
+    // Don't do this if not inside game
+    if(window.location.pathname !== "/gamepage"){
+      return ``;
+    }
+    // Wait for render 
     setTimeout(() => {
       let gameDom = document.getElementsByClassName('game-main')[0];
-      let boardDom = document.getElementsByClassName('board-display')[0];
+      let boardDom = document.getElementsByClassName('board')[0];
       let gWidth = gameDom.offsetWidth;
       let gHeight = gameDom.offsetHeight;
       if(gHeight > gWidth){
@@ -22,7 +27,7 @@ class FixEverything{
         boardDom.style.marginLeft = `${diff}px`;
         boardDom.style.marginRight = `-${diff}px`;
       }
-    }, 1);
+    }, 0);
     return ``;
   };
 }

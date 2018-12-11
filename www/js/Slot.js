@@ -13,9 +13,9 @@ class Slot extends Component {
     }
 
     slotClicked(e) {
-        e.stopPropagation();
+        // e.stopPropagation();
         // if(this.player != null){
-             this.board.slotClicked(this.col, this.row);
+            this.board.game.playTurn(this);
         // }
     }
 }

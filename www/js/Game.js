@@ -21,29 +21,32 @@ class Game extends Component{
     // Get input of a slot object
     playTurn(slot){
       // Get player in turn
-      current = currentPlayer();
+      let current = this.currentPlayer();
+
       // Check with board if the move is valid
-      validSlot = board.placeDisc(slot, current);
+      let validSlot = this.board.placeDisc(slot.col, current);
       // Was the move valid?
       if(validSlot){
         this.discs--;
         this.turn++;
+        validSlot.render();
 
         // Check with board if it was a winning move
-        validatedTurn = board.validate(validSlot);
+        let validatedTurn = this.board.validate(validSlot);
 
-        if(validatedTurn === 'win'){
+        if(validatedTurn){
           // If move was a win
           this.gameOver = true;
           this.winner = current;
+          this.render();
         }
       }
 
       if(this.discs === 0){
         // If no more discs
         this.gameOver = true;
+        this.render();
       }
-      this.render();
     }
 
 

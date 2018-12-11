@@ -16,24 +16,25 @@ class Board extends Component {
             this.gameBoard.push(colArr);
         }
     }
-    
+
 
     // check if for the wining move
     validate(slot) {
-
+      // Har satt tillfällig direktretur för att testa
+      return false;
     }
 
-    slotClicked(col, row) {
-        this.placeDisc(col, this.game.players[0]);
-    }
+    // slotClicked(col, row) {
+    //     this.placeDisc(col, this.game.players[0]);
+    // }
 
     // placing discs the board
     placeDisc(col, player){
         for(let i = 0; i < this.gameBoard[col].length; i++){
             if(!this.gameBoard[col][i].player){
                 this.gameBoard[col][i].player = player;
-                this.gameBoard[col][i].render();
-                return true;
+                // this.gameBoard[col][i].render();
+                return this.gameBoard[col][i];
             }
         }
         return false;
