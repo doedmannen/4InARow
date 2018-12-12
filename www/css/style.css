@@ -120,6 +120,22 @@ main {
   font-size: 1rem;
 }
 
+footer{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: blue;
+    border-bottom-color: blue;
+    background-color: rgb(241, 204, 148)
+}
+
+.footer-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
 /* *****************************************************'' */
 
 .win-page{
