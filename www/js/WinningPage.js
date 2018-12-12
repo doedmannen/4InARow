@@ -10,6 +10,7 @@ class WinningPage extends Component{
             'click .rematch-btn' : 'rematch',
             'click .new-game-btn' : 'newGame',
         });
+        FixEverything.navbar.render();
     }
 
     getText(){

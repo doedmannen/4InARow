@@ -11,7 +11,7 @@ class NavItem extends Component {
 
   showMe(){
     if(this.name === 'Play Game'){
-      if(FixEverything.game.game){
+      if(FixEverything.game.game && !FixEverything.game.game.gameOver){
         if(window.location.pathname === "/gamepage"){
           return `Rage quit game`;
         }

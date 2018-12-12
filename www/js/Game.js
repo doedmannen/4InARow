@@ -16,7 +16,7 @@ class Game extends Component{
     }
 
     currentPlayer(){
-      this.activePage = true; // Need to know if game is active
+      this.activePage = !this.gameOver; // Need to know if game is active
       // Decides whos turn it is
       let playerTurn = (this.turn % 2);
       let currentPlayer = this.players[playerTurn];
@@ -53,7 +53,7 @@ class Game extends Component{
       if(this.discs === 0){
         // If no more discs
         this.gameOver = true;
-        this.game.winningPage = new WinningPage(this.game); 
+        this.game.winningPage = new WinningPage(this.game);
         this.game.render();
       }
     }
