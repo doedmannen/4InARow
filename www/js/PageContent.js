@@ -7,6 +7,7 @@ class PageContent extends Component {
     this.gamePage = new GamePage();
     this.highScorePage = new HighScorePage();
     this.rulePage = new RulePage();
+    FixEverything.game = this.gamePage; 
   }
 
 }

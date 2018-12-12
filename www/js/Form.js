@@ -59,7 +59,7 @@ class Form extends Component{
         p2.name = this.baseEl.find('.name-player2').val();
 
 
-        // Bots have to see gameboard.   
+        // Bots have to see gameboard.
         p1.type = document.querySelector('.form-player1 input[name="player1-type"]:checked').value;
         p2.type = document.querySelector('.form-player2 input[name="player2-type"]:checked').value;
 
@@ -75,6 +75,8 @@ class Form extends Component{
 
         this.gamePage.game = new Game(player1, player2);
         this.gamePage.render();
+        FixEverything.navbar.render(); 
+
 
     }
 }

@@ -11,9 +11,11 @@ class Game extends Component{
         this.discs = 42;
         this.gameOver = false;
         this.winner;
+        this.activePage;
     }
 
     currentPlayer(){
+      this.activePage = true; // Need to know if game is active
       // Decides whos turn it is
       let playerTurn = (this.turn % 2);
       let currentPlayer = this.players[playerTurn];

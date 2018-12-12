@@ -13,7 +13,7 @@ class GamePage extends Component{
     }
 
     newGame(){
-      delete this.game;
+      this.game = undefined;
       this.form = new Form(this);
       this.render();
     }
@@ -25,6 +25,12 @@ class GamePage extends Component{
         JSON._save('scores.json', scores).then(()=>{
             console.log('Saved');
         })
+    }
+
+    unmount(){
+      if(this.game){
+        this.game.activePage = false;
+      }
     }
 
 }
