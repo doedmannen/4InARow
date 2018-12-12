@@ -12,7 +12,7 @@ class GamePage extends Component{
     rematch(){
       let player1 = this.game.players[0];
       let player2 = this.game.players[1];
-      this.game = new Game(player1, player2, this);
+      this.game = new Game(new Player(player1), new Player(player2), this);
       this.winningPage = undefined;
       this.render();
       FixEverything.navbar.render();
