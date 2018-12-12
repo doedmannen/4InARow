@@ -16,7 +16,7 @@ class GamePage extends Component{
       this.winningPage = undefined;
       this.render();
     }
-
+    
     newGame(){
       this.game = undefined;
       this.form = new Form(this);
