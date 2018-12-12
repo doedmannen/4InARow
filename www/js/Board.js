@@ -30,7 +30,6 @@ class Board extends Component {
 
     checkHorizontal(slot) {
         let slotsConnected = 0;
-        // check horizontal
         for (let j = 0; j <= 4; j++) {
             slotsConnected = 0;
             for (let i = -4; i < 0; i++) {
@@ -39,8 +38,7 @@ class Board extends Component {
                     if (this.gameBoard[currCord][slot.row].player === this.gameBoard[slot.col][slot.row].player) {
                         slotsConnected++;
                         if (slotsConnected === 4) {
-                            //console.log för att testa
-                            console.log(slot.player.name + " won!");
+                            // Om det är fyra i rad
                             return true;
                         }
                     }
@@ -56,8 +54,7 @@ class Board extends Component {
                 if (this.gameBoard[slot.col][slot.row - i].player === this.gameBoard[slot.col][slot.row].player) {
                     slotsConnected++;
                     if (slotsConnected === 4) {
-                        //console.log för att testa
-                        console.log(slot.player.name + " won!");
+                        // Om det är fyra i rad
                         return true;
                     }
                 }
