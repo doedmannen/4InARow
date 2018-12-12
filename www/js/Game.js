@@ -54,7 +54,7 @@ class Game extends Component{
         // If no more discs
         this.gameOver = true;
         this.game.winningPage = new WinningPage(this.game); 
-        this.render();
+        this.game.render();
       }
     }
 

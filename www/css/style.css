@@ -92,7 +92,7 @@ main {
 }
 
 .boardcol:hover{
-  background-color: lightblue;
+  background-color: rgb(123, 123, 255);
 }
 
 .slotItem{

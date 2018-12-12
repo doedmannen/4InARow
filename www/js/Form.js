@@ -73,7 +73,7 @@ class Form extends Component{
         let player1 = new Player(p1);
         let player2 = new Player(p2);
 
-        this.gamePage.game = new Game(player1, player2);
+        this.gamePage.game = new Game(player1, player2, this.gamePage);
         this.gamePage.render();
         FixEverything.navbar.render(); 
 
