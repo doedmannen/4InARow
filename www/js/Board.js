@@ -21,6 +21,7 @@ class Board extends Component {
     // check if for the wining move
     validate(slot) {
         // Har satt tillfällig direktretur för att testa
+        this.checkVertical(slot);
         if (this.checkHorizontal(slot)) {
             return true;
         }
@@ -28,22 +29,36 @@ class Board extends Component {
 
 
     checkHorizontal(slot) {
-        let slotCol = slot.col;
-        let slotRow = slot.row;
         let slotsConnected = 0;
         // check horizontal
         for (let j = 0; j <= 4; j++) {
             slotsConnected = 0;
             for (let i = -4; i < 0; i++) {
-                let currCord = i + j;
-                if (slotCol + currCord < this.gameBoard.length && slotCol + currCord >= 0) {
-                    if (this.gameBoard[slotCol + currCord][slotRow].player === this.gameBoard[slotCol][slotRow].player) {
+                let currCord = slot.col + i + j;
+                if (currCord < this.gameBoard.length && currCord >= 0) {
+                    if (this.gameBoard[currCord][slot.row].player === this.gameBoard[slot.col][slot.row].player) {
                         slotsConnected++;
                         if (slotsConnected === 4) {
                             //console.log för att testa
                             console.log(slot.player.name + " won!");
                             return true;
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    checkVertical(slot) {
+        let slotsConnected = 0;
+        for (let i = 0; i < 4; i++) {
+            if (slot.row - i >= 0) {
+                if (this.gameBoard[slot.col][slot.row - i].player === this.gameBoard[slot.col][slot.row].player) {
+                    slotsConnected++;
+                    if (slotsConnected === 4) {
+                        //console.log för att testa
+                        console.log(slot.player.name + " won!");
+                        return true;
                     }
                 }
             }
