@@ -70,8 +70,22 @@ class Form extends Component{
         p1.color = 'red';
         p2.color = 'yellow';
 
-        let player1 = new Player(p1);
-        let player2 = new Player(p2);
+        let player1, player2;
+
+        if(p1.type === 'human'){
+            player1 = new Player(p1, this.gamePage);
+        } else if (p1.type === 'bot'){
+            player1 = new Bot(p1, this.gamePage);
+        }
+
+        if(p2.type === 'human'){
+            player2 = new Player(p2, this.gamePage);
+        } else if (p2.type === 'bot'){
+            player2 = new Bot(p2, this.gamePage);
+        }
+
+        // let player1 = new Player(p1);
+        // let player2 = new Player(p2);
 
         this.gamePage.game = new Game(player1, player2);
         this.gamePage.render();
