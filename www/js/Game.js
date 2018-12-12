@@ -81,7 +81,7 @@ class Game extends Component{
           // If move was a win
           this.gameOver = true;
           this.winner = current;
-          this.game.winningPage = new WinningPage(this.game, winner);
+          this.game.winningPage = new WinningPage(this.game, this.winner);
           this.render();
         }
       }
