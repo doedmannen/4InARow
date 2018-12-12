@@ -3,7 +3,8 @@ class GamePage extends Component{
         super();
         this.addRoute('/gamepage', 'Play');
         this.form = new Form(this);
-
+        this.winningPage;
+        
         // Test uncomment this if you want to test winningPage
         // this.winningPage = new WinningPage(this, {name: 'Jesus Christ Son Of God', turns: 13});
     }
@@ -11,16 +12,18 @@ class GamePage extends Component{
     rematch(){
       let player1 = this.game.players[0];
       let player2 = this.game.players[1];
-      this.game = new Game(player1, player2, this);
-      this.winningPage === null;
+      this.game = new Game(new Player(player1), new Player(player2), this);
+      this.winningPage = undefined;
       this.render();
+      FixEverything.navbar.render();
     }
-
+    
     newGame(){
-      delete this.game;
+      this.game = undefined;
       this.form = new Form(this);
-      this.winningPage === null;
+      this.winningPage = undefined;
       this.render();
+      FixEverything.navbar.render();
     }
 
     // takes an object with name and score property
@@ -30,6 +33,12 @@ class GamePage extends Component{
         JSON._save('scores.json', scores).then(()=>{
             console.log('Saved');
         })
+    }
+
+    unmount(){
+      if(this.game){
+        this.game.activePage = false;
+      }
     }
 
 }

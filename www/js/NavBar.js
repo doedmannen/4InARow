@@ -8,6 +8,9 @@ class NavBar extends Component {
       new NavItem('HighScores', '/highscores'),
       new NavItem('Rules', '/rules')
     ];
+    this.addEvents({
+      'click .navbar-nav' : 'render'
+    });
   }
 
 }

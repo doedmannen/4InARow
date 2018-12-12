@@ -9,12 +9,16 @@ class Game extends Component{
         this.players[1].game = this;
         this.board = new Board(this);
         this.turn = 0;
-        this.discs = 42;
         this.gameOver = false;
         this.winner;
+        this.activePage;
+        this.addEvents({
+          'click .btn-resetGame':'resetGame'
+        });
     }
 
     currentPlayer(){
+      this.activePage = !this.gameOver; // Need to know if game is active
       // Decides whos turn it is
       let playerTurn = (this.turn % 2);
       let currentPlayer = this.players[playerTurn];
@@ -30,7 +34,7 @@ class Game extends Component{
       let validSlot = this.board.placeDisc(slot.col, current);
       // Was the move valid?
       if(validSlot){
-        this.discs--;
+        current.discs--;
         this.turn++;
         validSlot.render();
         this.players[0].render();
@@ -48,12 +52,16 @@ class Game extends Component{
         }
       }
 
-      if(this.discs === 0){
+      if((this.players[0].discs + this.players[1].discs) === 0){
         // If no more discs
         this.gameOver = true;
-        this.game.winningPage = new WinningPage(this.game); 
-        this.render();
+        this.game.winningPage = new WinningPage(this.game);
+        this.game.render();
       }
+    }
+
+    resetGame(){
+      this.game.rematch();
     }
 
 

@@ -4,7 +4,8 @@ class Player extends Component{
     // gameboard comes in with player 
     constructor(player){
         super();
-        Object.assign(this, player); 
+        Object.assign(this, player);
+        this.discs = 21; 
     }
 
 
