@@ -22,29 +22,31 @@ class Game extends Component{
       // Decides whos turn it is
       let playerTurn = (this.turn % 2);
       let currentPlayer = this.players[playerTurn];
-
       return currentPlayer;
     }
 
-    
     // Get input of a slot object
     playTurn(slot){
       // Get player in turn
       let current = this.currentPlayer();
       // Check with board if the move is valid
-
       let validSlot;
-      
       if(current instanceof Bot){
         //if current is Bot
         validSlot = this.board.placeDisc(current.getMove(), current);
+        this.ifValidMove(validSlot, current);
       } else {
-       validSlot = this.board.placeDisc(slot.col, current);
+        validSlot = this.board.placeDisc(slot.col, current);
+        this.ifValidMove(validSlot, current);
       }
+    }
 
+    ifValidMove(slot, current){
+      let validSlot = slot;
+      let player = current;
       // Was the move valid?
       if(validSlot){
-        current.discs--;
+        player.discs--;
         this.turn++;
         validSlot.render();
         this.players[0].render();
