@@ -1,8 +1,9 @@
 class Game extends Component{
 
 
-    constructor(playerOne, playerTwo){
+    constructor(playerOne, playerTwo, game){
         super();
+        this.game = game;
         this.players = [playerOne, playerTwo];
         this.players[0].game = this;
         this.players[1].game = this;
@@ -42,6 +43,7 @@ class Game extends Component{
           // If move was a win
           this.gameOver = true;
           this.winner = current;
+          this.game.winningPage = new WinningPage(this.game, winner);
           this.render();
         }
       }
@@ -49,6 +51,7 @@ class Game extends Component{
       if(this.discs === 0){
         // If no more discs
         this.gameOver = true;
+        this.game.winningPage = new WinningPage(this.game); 
         this.render();
       }
     }
