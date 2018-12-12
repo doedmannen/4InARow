@@ -17,7 +17,7 @@ class GamePage extends Component{
       this.render();
       FixEverything.navbar.render();
     }
-
+    
     newGame(){
       this.game = undefined;
       this.form = new Form(this);
