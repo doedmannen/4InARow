@@ -4,7 +4,7 @@ class GamePage extends Component{
         this.addRoute('/gamepage', 'Play');
         this.form = new Form(this);
         this.winningPage;
-
+        
         // Test uncomment this if you want to test winningPage
         // this.winningPage = new WinningPage(this, {name: 'Jesus Christ Son Of God', turns: 13});
     }
@@ -15,6 +15,7 @@ class GamePage extends Component{
       this.game = new Game(player1, player2, this);
       this.winningPage = undefined;
       this.render();
+      FixEverything.navbar.render();
     }
 
     newGame(){
@@ -22,6 +23,7 @@ class GamePage extends Component{
       this.form = new Form(this);
       this.winningPage = undefined;
       this.render();
+      FixEverything.navbar.render();
     }
 
     // takes an object with name and score property
