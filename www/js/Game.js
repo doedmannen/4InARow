@@ -12,6 +12,9 @@ class Game extends Component{
         this.gameOver = false;
         this.winner;
         this.activePage;
+        this.addEvents({
+          'click .btn-resetGame':'resetGame'
+        });
     }
 
     currentPlayer(){
@@ -55,6 +58,10 @@ class Game extends Component{
         this.game.winningPage = new WinningPage(this.game);
         this.game.render();
       }
+    }
+
+    resetGame(){
+      this.game.rematch();
     }
 
 
