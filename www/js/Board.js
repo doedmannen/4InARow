@@ -19,11 +19,13 @@ class Board extends Component {
 
     // placing discs the board
     placeDisc(col, player) {
-        for (let i = 0; i < this.gameBoard[col].length; i++) {
-            if (!this.gameBoard[col][i].player) {
-                this.gameBoard[col][i].player = player;
-                // this.gameBoard[col][i].render();
-                return this.gameBoard[col][i];
+        if(!this.game.gameOver){
+            for (let i = 0; i < this.gameBoard[col].length; i++) {
+                if (!this.gameBoard[col][i].player) {
+                    this.gameBoard[col][i].player = player;
+                    // this.gameBoard[col][i].render();
+                    return this.gameBoard[col][i];
+                }
             }
         }
         return false;
