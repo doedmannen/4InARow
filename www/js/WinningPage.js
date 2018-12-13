@@ -17,7 +17,7 @@ class WinningPage extends Component{
         if(this.winningPlayer === null){
             return `It's a draw!`
         }else{
-            return `Congrats <span class="text-primary">${this.winningPlayer.name}</span>. You won in ${21 - this.winningPlayer.turns} turns. Wanna see highscore list?`
+            return `Congrats <span class="text-primary">${this.winningPlayer.name}</span>. You only needed ${21 - this.winningPlayer.discs} discs to win. Wanna see highscore list?`
         }
     }
 

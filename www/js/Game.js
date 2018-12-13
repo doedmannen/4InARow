@@ -60,7 +60,7 @@ class Game extends Component{
           this.gameOver = true;
           this.winner = current;
           this.game.winningPage = new WinningPage(this.game, this.winner);
-          this.render();
+          this.game.render();
         }
       }
 
