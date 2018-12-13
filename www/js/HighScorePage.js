@@ -88,6 +88,7 @@ class HighScorePage extends Component {
 
 
 
+
 /*
 
 */
