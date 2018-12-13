@@ -1,7 +1,7 @@
 <span>
   ${this === (this.game.showCurrentPlayer()) ? `
   <span class="player-display mb-4" style="color:green"><i class="fas fa-circle"></i></span>
-    ` : ` `}
+    ` : ``}
   <span class="player-display mb-4 badge ${this.game.players[0] === this ? `badge-danger` : `badge-warning`}">
     ${this.type  === 'human' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>' }
     ${this.name}
