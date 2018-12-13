@@ -30,9 +30,10 @@ class Form extends Component{
 
     validate(p1, p2){
         let validP1, validP2 = false;
+        p1.name = p1.name.trim();
+        p2.name = p2.name.trim();
 
         if(p1.name.length >= 20 || p1.name.length <= 2){
-            console.log('p1 fel');
             $('#p1-invalid').removeClass('d-none').addClass('d-unset');
         } else {
             $('#p1-invalid').removeClass('d-unset').addClass('d-none');
@@ -40,7 +41,6 @@ class Form extends Component{
         }
 
         if(p2.name.length >= 20 || p2.name.length <= 2){
-            console.log('p2 fel');
             $('#p2-invalid').removeClass('d-none').addClass('d-unset');
         } else {
             $('#p2-invalid').removeClass('d-unset').addClass('d-none');
