@@ -13,10 +13,9 @@ class Game extends Component{
         this.winner;
         this.activePage;
         this.addEvents({
-          'click .btn-resetGame':'resetGame'
+          'click .btn-resetGame':'resetGame',
         });
-    }
-
+    } 
     showCurrentPlayer(){
       let current = this.currentPlayer();
       // if(current instanceof Bot){

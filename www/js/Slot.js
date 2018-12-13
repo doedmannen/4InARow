@@ -13,9 +13,12 @@ class Slot extends Component {
     }
 
     slotClicked(e) {
-        // e.stopPropagation();
+        e.stopPropagation();
         // if(this.player != null){
+            if(FixEverything.game.game.currentPlayer() instanceof Bot){
+            } else {
             this.board.game.playTurn(this);
+            }
         // }
     }
 }
