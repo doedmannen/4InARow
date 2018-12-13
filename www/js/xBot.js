@@ -1,8 +1,7 @@
 class Bot extends Player{
 
     constructor(player){
-        super();  
-        Object.assign(this, player);
+        super(player);  
     }
 
     //returns a valid move 

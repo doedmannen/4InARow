@@ -10,9 +10,15 @@ class GamePage extends Component{
     }
 
     rematch(){
-      let player1 = this.game.players[0];
-      let player2 = this.game.players[1];
-      this.game = new Game(new Player(player1), new Player(player2), this);
+      let players = this.game.players;
+      for(let i = 0; i < players.length; i++){
+        if(players[i] instanceof Bot){
+          players[i] = new Bot(players[i]);
+        } else {
+          players[i] = new Player(players[i]);
+        }
+      }
+      this.game = new Game(players[0], players[1], this);
       this.winningPage = undefined;
       this.render();
       FixEverything.navbar.render();
