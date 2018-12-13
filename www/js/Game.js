@@ -53,7 +53,7 @@ class Game extends Component{
         this.players[1].render();
 
         // Check with board if it was a winning move
-        let validatedTurn = this.board.validate(validSlot);
+          let validatedTurn = new WinChecker().validate(validSlot);
 
         if(validatedTurn){
           // If move was a win
