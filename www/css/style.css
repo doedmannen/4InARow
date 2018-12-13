@@ -35,14 +35,18 @@ main {
 }
 
 .startPageFirst {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.startPageFirst a{
+.startPageFirst a {
     align-self: flex-end;
     width: fit-content;
+}
+
+.display-3 {
+    font-size: 3.5em;
 }
 
 .startPageSecond {
@@ -52,14 +56,16 @@ main {
     justify-content: space-around;
 }
 
-.startPageSecondImage{
+.startPageSecondImage {
     height: 100%;
-    background-size: 100%;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("/gameboard.png");
+
 }
-.board{
+
+.board {
     display: flex;
     flex-direction: row;
     /*align-items: self-start;*/
@@ -67,61 +73,67 @@ main {
     height: 100%;
 }
 
-.board-display{
-  flex: 1;
-}
-
-.game-page{
-  display: flex;
-  flex: 1;
-  height: 100%;
-  justify-content: center;
-}
-
-.game-main{
-  flex: 1;
-}
-
-.boardcol{
-  flex: 1;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  background-color: blue;
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-.boardcol:hover{
-  background-color: rgb(123, 123, 255);
-}
-
-.slotItem{
-  flex: 1;
-  display: flex;
-  width: 90%;
-  margin: 10%;
-  /* width: calc(100% / 6);
-  height: calc(100% / 7); */
-}
-
-.rounded-circle{
+.board-display {
     flex: 1;
+}
+
+.game-page {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+}
+
+.game-main {
+    flex: 1;
+}
+
+.boardcol {
+    flex: 1;
+    display: flex;
+    position: relative;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: blue;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    animation-name: drop;
+    animation-duration: 2s;
+}
+
+.boardcol:hover {
+    background-color: rgb(123, 123, 255);
+}
+
+.slotItem {
+    flex: 1;
+    display: flex;
+    width: 90%;
+    margin: 10%;
+    /* width: calc(100% / 6);
+    height: calc(100% / 7); */
+}
+
+.rounded-circle {
+    flex: 1;
+    position: relative;
+    animation-name: drop;
+    animation-duration: 0.5s;
     z-index: 800;
 }
 
-.board-display{
+.board-display {
     /*Ändra px till samma för att anpassa storlek. Detta är för att mellanrummen mellan cirklarna ska vara 0.*/
     /* height: calc(6 * 10vw);
     width: calc(7 * 10vw); */
     height: 100%;
 }
 
-.player-display{
-  font-size: 1rem;
+.player-display {
+    font-size: 1rem;
 }
 
-footer{
+footer {
     border-top-style: solid;
     border-bottom-style: solid;
     border-top-color: blue;
@@ -129,7 +141,7 @@ footer{
     background-color: rgb(241, 204, 148)
 }
 
-.footer-row{
+.footer-row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -139,7 +151,7 @@ footer{
 
 /* *****************************************************'' */
 
-.win-page{
+.win-page {
     position: fixed;
     left: 0;
     top: 0;
@@ -147,19 +159,27 @@ footer{
     height: 100%;
     width: 100%;
     z-index: 999;
-  }
+}
 
-.left-rounded{
+.left-rounded {
     padding-top: 10px;
     padding-left: 10px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px
 }
 
-.right-rounded{
+.right-rounded {
     padding-top: 10px;
     padding-right: 10px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
 
+@keyframes drop {
+    0% {
+        bottom: 100vh;
+    }
+    100% {
+        bottom: 0;
+    }
+}
