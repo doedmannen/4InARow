@@ -18,8 +18,7 @@ class Bot extends Player{
     }
 
     getRandom(validMoves){
-        let randomOfValidMoves = Math.floor(Math.random() * validMoves.length);
-        return randomOfValidMoves;
+        return Math.floor(Math.random() * validMoves.length);
     }
 
     //returns array with possible valid moves

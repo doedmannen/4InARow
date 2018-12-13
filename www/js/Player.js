@@ -16,17 +16,6 @@ class Player extends Component{
     getMove(){
         if(this.type === 'bot'){
 
-            // Return some move
-            /*
-            let possibleMoves = gameboard.getPossibleMoves(); // Returns Arrays?
-
-            let choice = Math.floor(Math.random() * possibleMoves.length);
-
-            return possibleMoves(possibleMoves(choice));
-            */
-
-
-
         }if(this.type === 'smartBot'){
 
             //return some better move
