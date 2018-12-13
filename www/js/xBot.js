@@ -1,12 +1,19 @@
 class Bot extends Player{
 
     constructor(player){
-        super(player);  
+        super(player);
     }
 
-    //returns a valid move 
+    runMe(){
+      if(FixEverything.game.game.currentPlayer() === this){
+        FixEverything.game.game.playBot(this);
+      }
+      return '';
+    }
+
+    //returns a valid move
     getMove(){
-        let move = this.getValidMoves();        
+        let move = this.getValidMoves();
         return move[this.getRandom(move)];
     }
 

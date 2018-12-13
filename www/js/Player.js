@@ -1,14 +1,16 @@
 class Player extends Component{
 
 
-    // gameboard comes in with player 
+    // gameboard comes in with player
     constructor(player){
         super();
         Object.assign(this, player);
-        this.discs = 21; 
+        this.discs = 21;
     }
 
-
+    runMe(){
+      return '';
+    }
 
     // should only work for bots
     getMove(){

@@ -19,10 +19,11 @@ class Game extends Component{
 
     showCurrentPlayer(){
       let current = this.currentPlayer();
-      if(current instanceof Bot){
-        //if bot call botlogic for placing disc
-        this.playBot(current);
-      }
+      // if(current instanceof Bot){
+      //   //if bot call botlogic for placing disc
+      //   this.playBot(current);
+      // }
+      return current;
     }
 
     currentPlayer(){
@@ -34,8 +35,11 @@ class Game extends Component{
     }
 
     playBot(current){
-      let validSlot = this.board.placeDisc(current.getMove(), current);
-      this.ifValidMove(validSlot, current);
+      setTimeout(() => {
+        let validSlot = this.board.placeDisc(current.getMove(), current);
+        this.ifValidMove(validSlot, current);
+      }, 1000);
+      return '';
     }
 
     // Get input of a slot object
@@ -49,7 +53,7 @@ class Game extends Component{
         this.ifValidMove(validSlot, current);
       }
     }
-    
+
 
     ifValidMove(slot, current){
       let validSlot = slot;
