@@ -17,7 +17,6 @@ class Board extends Component {
     }
 
     column0Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[0][0]);
