@@ -40,12 +40,14 @@ class Game extends Component{
 
     // Get input of a slot object
     playTurn(slot){
-      // Get player in turn
-      let current = this.currentPlayer();
-      // Check with board if the move is valid
-      let validSlot = slot;
-      validSlot = this.board.placeDisc(slot.col, current);
-      this.ifValidMove(validSlot, current);
+      if(!this.gameOver){
+        // Get player in turn
+        let current = this.currentPlayer();
+        // Check with board if the move is valid
+        let validSlot = slot;
+        validSlot = this.board.placeDisc(slot.col, current);
+        this.ifValidMove(validSlot, current);
+      }
     }
     
 
@@ -84,6 +86,8 @@ class Game extends Component{
     }
 
     resetGame(){
-      this.game.rematch();
+      if(!this.game.winningPage){
+        this.game.rematch();
+      }
     }
 }
