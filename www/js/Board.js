@@ -25,7 +25,6 @@ class Board extends Component {
     }
 
     column1Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[1][0]);
@@ -33,7 +32,6 @@ class Board extends Component {
     }
     
     column2Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[2][0]);
@@ -41,7 +39,6 @@ class Board extends Component {
     }
 
     column3Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[3][0]);
@@ -49,7 +46,6 @@ class Board extends Component {
     }
 
     column4Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[4][0]);
@@ -57,7 +53,6 @@ class Board extends Component {
     }
 
     column5Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[5][0]);
@@ -65,7 +60,6 @@ class Board extends Component {
     }
 
     column6Clicked() {
-        console.log('clicked')
         if (FixEverything.game.game.currentPlayer() instanceof Bot) {
         } else {
             this.game.playTurn(this.gameBoard[6][0]);
