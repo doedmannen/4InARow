@@ -4,6 +4,9 @@ class GamePage extends Component{
         this.addRoute('/gamepage', 'Play');
         this.form = new Form(this);
         this.winningPage;
+        this.addEvents({
+          'click .show-window-btn' : 'showWinningPage'
+        })
         
         // Test uncomment this if you want to test winningPage
         // this.winningPage = new WinningPage(this, {name: 'Jesus Christ Son Of God', turns: 13});
@@ -45,6 +48,10 @@ class GamePage extends Component{
       if(this.game){
         this.game.activePage = false;
       }
+    }
+
+    showWinningPage(){
+      document.querySelector(".win-page").style.display = "block";
     }
 
 }
