@@ -67,6 +67,9 @@ class Game extends Component{
           // If move was a win
           this.gameOver = true;
           this.winner = current;
+          if(this.winner.type !== 'bot'){
+            this.game.saveScore({name : this.winner.name, score: 21 - this.winner.discs});
+          }
           this.game.winningPage = new WinningPage(this.game, this.winner);
           this.game.render();
         }
