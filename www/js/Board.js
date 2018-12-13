@@ -27,12 +27,11 @@ class Board extends Component {
 
 
     checkHorizontal(slot) {
-        let slotsConnected = 0;
         for (let j = 0; j <= 4; j++) {
-            slotsConnected = 0;
+            let slotsConnected = 0;
             for (let i = -4; i < 0; i++) {
                 let currCol = slot.col + i + j;
-                if (currCol < this.gameBoard.length && currCol >= 0) {
+                if (this.checkBoundary(currCol, slot.row)) {
                     if (this.gameBoard[currCol][slot.row].player === this.gameBoard[slot.col][slot.row].player) {
                         slotsConnected++;
                         if (slotsConnected === 4) {
@@ -47,7 +46,7 @@ class Board extends Component {
     checkVertical(slot) {
         let slotsConnected = 0;
         for (let i = 0; i < 4; i++) {
-            if (slot.row - i >= 0) {
+            if (this.checkBoundary(slot.col, slot.row - i)) {
                 if (this.gameBoard[slot.col][slot.row - i].player === this.gameBoard[slot.col][slot.row].player) {
                     slotsConnected++;
                     if (slotsConnected === 4) {
@@ -59,14 +58,13 @@ class Board extends Component {
     }
 
     checkDiagonal(slot) {
-        let slotsConnected = 0;
         for (let k = 0; k < 2; k++) {
             for (let j = 0; j <= 4; j++) {
-                slotsConnected = 0;
+                let slotsConnected = 0;
                 for (let i = -4; i < 0; i++) {
                     let currCol = slot.col + i + j;
                     let currRow = (k === 0) ? slot.row - (i + j) : slot.row + (i + j);
-                    if (currCol < this.gameBoard.length && currCol >= 0 && currRow >= 0 && currRow < this.gameBoard[currCol].length) {
+                    if (this.checkBoundary(currCol, currRow)) {
                         if (this.gameBoard[currCol][currRow].player === this.gameBoard[slot.col][slot.row].player) {
                             slotsConnected++;
                             if (slotsConnected === 4) {
@@ -77,6 +75,10 @@ class Board extends Component {
                 }
             }
         }
+    }
+
+    checkBoundary(col, row) {
+        return col < this.gameBoard.length && col >= 0 && row >= 0 && row < this.gameBoard[col].length;
     }
 
     // slotClicked(col, row) {
