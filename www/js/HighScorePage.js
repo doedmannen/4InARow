@@ -16,29 +16,16 @@ class HighScorePage extends Component {
         });
     }
 
-    // Bubble Sort
-    bubble(arr) {
-        var len = arr.length;
-        for (var i = 0; i < len - 1; i++) {
-            for (var j = 0; j < len - i - 1; j++) {
-
-                //comparing scores of two objects
-                if (arr[j].score > arr[j + 1].score) {
-                    //if the first object has bigger score move it up in the array
-                    var temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-        return arr;
-    }
-
     // loading up json file, converting into an array, sorting and displaying it on the page
     async updateScore() {
         console.log('score updated');
         this.scores = await JSON._load('scores.json');
-        this.bubble(this.scores);
+
+        this.scores = this.scores.slice().sort((a, b) => {
+            return a.score > b.score ? 1 : -1;
+          });
+
+        // this.bubble(this.scores);
         this.render();
     }
 
