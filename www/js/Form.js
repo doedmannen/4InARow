@@ -33,14 +33,14 @@ class Form extends Component{
         p1.name = p1.name.trim();
         p2.name = p2.name.trim();
 
-        if(p1.name.length >= 20 || p1.name.length <= 2){
+        if(p1.name.length > 20 || p1.name.length < 2){
             $('#p1-invalid').removeClass('d-none').addClass('d-unset');
         } else {
             $('#p1-invalid').removeClass('d-unset').addClass('d-none');
             validP1 = true;
         }
 
-        if(p2.name.length >= 20 || p2.name.length <= 2){
+        if(p2.name.length > 20 || p2.name.length < 2){
             $('#p2-invalid').removeClass('d-none').addClass('d-unset');
         } else {
             $('#p2-invalid').removeClass('d-unset').addClass('d-none');
