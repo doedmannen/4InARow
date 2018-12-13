@@ -9,6 +9,7 @@ class WinningPage extends Component{
         this.addEvents({
             'click .rematch-btn' : 'rematch',
             'click .new-game-btn' : 'newGame',
+            'click .hide-window-btn' : 'hideWindow'
         });
         FixEverything.navbar.render();
     }
@@ -19,6 +20,11 @@ class WinningPage extends Component{
         }else{
             return `Congrats <span class="text-primary">${this.winningPlayer.name}</span>. You only needed ${21 - this.winningPlayer.discs} discs to win. Wanna see highscore list?`
         }
+    }
+
+    hideWindow(){
+        console.log('clicked');
+        document.querySelector(".win-page").style.display = "none";
     }
 
     rematch(){
