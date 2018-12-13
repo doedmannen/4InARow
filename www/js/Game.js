@@ -1,7 +1,7 @@
-class Game extends Component{
+class Game extends Component {
 
 
-    constructor(playerOne, playerTwo, game){
+    constructor(playerOne, playerTwo, game) {
         super();
         this.game = game;
         this.players = [playerOne, playerTwo];
@@ -13,84 +13,74 @@ class Game extends Component{
         this.winner;
         this.activePage;
         this.addEvents({
-          'click .btn-resetGame':'resetGame',
+            'click .btn-resetGame': 'resetGame',
         });
-    } 
-    showCurrentPlayer(){
-      let current = this.currentPlayer();
-      // if(current instanceof Bot){
-      //   //if bot call botlogic for placing disc
-      //   this.playBot(current);
-      // }
-      return current;
     }
 
-    currentPlayer(){
-      this.activePage = !this.gameOver; // Need to know if game is active
-      // Decides whos turn it is
-      let playerTurn = (this.turn % 2);
-      let currentPlayer = this.players[playerTurn];
-      return currentPlayer;
+    currentPlayer() {
+        this.activePage = !this.gameOver; // Need to know if game is active
+        // Decides whos turn it is
+        let playerTurn = (this.turn % 2);
+        return this.players[playerTurn];
     }
 
-    playBot(current){
-      setTimeout(() => {
-        let validSlot = this.board.placeDisc(current.getMove(), current);
-        this.ifValidMove(validSlot, current);
-      }, 1000);
-      return '';
+    playBot(current) {
+        setTimeout(() => {
+            let validSlot = this.board.placeDisc(current.getMove(), current);
+            this.ifValidMove(validSlot, current);
+        }, 1000);
+        return '';
     }
 
     // Get input of a slot object
-    playTurn(slot){
-      if(!this.gameOver){
-        // Get player in turn
-        let current = this.currentPlayer();
-        // Check with board if the move is valid
-        let validSlot = slot;
-        validSlot = this.board.placeDisc(slot.col, current);
-        this.ifValidMove(validSlot, current);
-      }
-    }
-
-
-    ifValidMove(slot, current){
-      let validSlot = slot;
-      let player = current;
-      // Was the move valid?
-      if(validSlot){
-        player.discs--;
-        this.turn++;
-        validSlot.render();
-        this.players[0].render();
-        this.players[1].render();
-
-        // Check with board if it was a winning move
-          let validatedTurn = new WinChecker().validate(validSlot);
-
-        if(validatedTurn){
-          // If move was a win
-          this.gameOver = true;
-          this.winner = current;
-          if(this.winner.type !== 'bot'){
-            this.game.saveScore({name : this.winner.name, score: 21 - this.winner.discs});
-          }
-          this.game.winningPage = new WinningPage(this.game, this.winner);
-          this.game.render();
+    playTurn(slot) {
+        if (!this.gameOver) {
+            // Get player in turn
+            let current = this.currentPlayer();
+            // Check with board if the move is valid
+            let validSlot;
+            validSlot = this.board.placeDisc(slot.col, current);
+            this.ifValidMove(validSlot, current);
         }
-      }
-
-      if((this.players[0].discs + this.players[1].discs) === 0){
-        // If no more discs
-        this.gameOver = true;
-        this.game.winningPage = new WinningPage(this.game);
-        this.game.render();
-      }
     }
 
-    resetGame(){
-      if(!this.game.winningPage){
-        this.game.rematch();
-      }
+
+    ifValidMove(slot, current) {
+        let validSlot = slot;
+        // Was the move valid?
+        if (validSlot) {
+            current.discs--;
+            this.turn++;
+            validSlot.render();
+            this.players[0].render();
+            this.players[1].render();
+
+            // Check with board if it was a winning move
+            let validatedTurn = new WinChecker().validate(validSlot);
+
+            if (validatedTurn) {
+                // If move was a win
+                this.gameOver = true;
+                this.winner = current;
+                if (this.winner.type !== 'bot') {
+                    this.game.saveScore({name: this.winner.name, score: 21 - this.winner.discs});
+                }
+                this.game.winningPage = new WinningPage(this.game, this.winner);
+                this.game.render();
+            }
+        }
+
+        if ((this.players[0].discs + this.players[1].discs) === 0) {
+            // If no more discs
+            this.gameOver = true;
+            this.game.winningPage = new WinningPage(this.game);
+            this.game.render();
+        }
+    }
+
+    resetGame() {
+        if (!this.game.winningPage) {
+            this.game.rematch();
+        }
     }
 }

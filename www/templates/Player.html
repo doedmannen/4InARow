@@ -1,5 +1,5 @@
 <span>
-  ${this === (this.game.showCurrentPlayer()) ? `
+  ${this === (this.game.currentPlayer()) ? `
   <span class="player-display mb-4" style="color:green"><i class="fas fa-circle"></i></span>
     ` : ``}
   <span class="player-display mb-4 badge ${this.game.players[0] === this ? `badge-danger` : `badge-warning`}">

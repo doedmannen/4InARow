@@ -1,6 +1,6 @@
 class WinChecker {
-    // check if for the wining move
 
+    // check if for the wining move
     validate(slot) {
         if (this.checkHorizontal(slot) || this.checkVertical(slot) || this.checkDiagonal(slot)) {
             return true;
