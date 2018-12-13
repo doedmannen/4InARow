@@ -17,6 +17,14 @@ class Game extends Component{
         });
     }
 
+    showCurrentPlayer(){
+      let current = this.currentPlayer();
+      if(current instanceof Bot){
+        //if bot call botlogic for placing disc
+        this.playBot(current);
+      }
+    }
+
     currentPlayer(){
       this.activePage = !this.gameOver; // Need to know if game is active
       // Decides whos turn it is
@@ -25,21 +33,21 @@ class Game extends Component{
       return currentPlayer;
     }
 
+    playBot(current){
+      let validSlot = this.board.placeDisc(current.getMove(), current);
+      this.ifValidMove(validSlot, current);
+    }
+
     // Get input of a slot object
     playTurn(slot){
       // Get player in turn
       let current = this.currentPlayer();
       // Check with board if the move is valid
-      let validSlot;
-      if(current instanceof Bot){
-        //if current is Bot
-        validSlot = this.board.placeDisc(current.getMove(), current);
-        this.ifValidMove(validSlot, current);
-      } else {
-        validSlot = this.board.placeDisc(slot.col, current);
-        this.ifValidMove(validSlot, current);
-      }
+      let validSlot = slot;
+      validSlot = this.board.placeDisc(slot.col, current);
+      this.ifValidMove(validSlot, current);
     }
+    
 
     ifValidMove(slot, current){
       let validSlot = slot;
@@ -75,6 +83,4 @@ class Game extends Component{
     resetGame(){
       this.game.rematch();
     }
-
-
 }
