@@ -28,7 +28,7 @@ class Game extends Component {
         setTimeout(() => {
             let validSlot = this.board.placeDisc(current.getMove(), current);
             this.ifValidMove(validSlot, current);
-        }, 1000);
+        }, 2000);
         return '';
     }
 
