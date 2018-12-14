@@ -1,0 +1,6 @@
+<div class="game-page">
+        ${this.winningPage !== undefined ? `<button type="button" class="show-window-btn btn btn-secondary" style="position: fixed; right:0; top: 0"><i class="fas fa-eye"></i></button>` : ``}
+        ${this.game === undefined ? this.form : this.game}
+        ${this.winningPage !== undefined ? this.winningPage : ``}
+</div>
+

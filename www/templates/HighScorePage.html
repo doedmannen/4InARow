@@ -1,0 +1,16 @@
+<div>
+    <div class="d-flex justify-content-between mb-2">
+        <h1>High Scores</h1>
+        <div>
+            <button type="button" class="switch-mode-btn btn btn-primary">${(this.showOnlyTen === true) ? `Show all` :
+                `Show Top10`}</button>
+            <button class="refresh-btn btn btn-outline-primary">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </div>
+    <div>
+        ${this.getScoresUI()}
+    </div>
+
+</div>
