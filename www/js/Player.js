@@ -6,6 +6,7 @@ class Player extends Component{
         super();
         Object.assign(this, player);
         this.discs = 21;
+        this.animation = '';
     }
 
     runMe(){
