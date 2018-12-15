@@ -30,8 +30,12 @@ main {
 }
 
 .otherGames {
-    height: 100%;
     margin-top: 2vh;
+    border: 1px black solid;
+}
+
+.otherGamesImg{
+    border: 1px black solid;
 }
 
 .startPageFirst {
@@ -118,6 +122,8 @@ main {
     animation-name: drop;
     animation-duration: 0.5s;
     z-index: 800;
+    box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+
 }
 
 .board-display {
@@ -174,5 +180,20 @@ footer {
     }
     100% {
         bottom: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.9);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0.9);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 30px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 30px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
     }
 }
