@@ -4,9 +4,17 @@ class Form extends Component{
         this.addEvents({
             'click .btn-start': 'readValues',
             'keyup .name-player1': 'addOnEnter',
-            'keyup .name-player2': 'addOnEnter'
+            'keyup .name-player2': 'addOnEnter',
+            'click .online-toggle': 'onlineToggle'
         });
         this.gamePage = game;
+        this.online = false;
+    }
+
+    onlineToggle(){
+      OnlineGame.playerID();
+      this.online = !this.online;
+      this.render()
     }
 
     addOnEnter(e){
@@ -66,6 +74,6 @@ class Form extends Component{
         }
         this.gamePage.game = new Game(player1, player2, this.gamePage);
         this.gamePage.render();
-        FixEverything.navbar.render(); 
+        FixEverything.navbar.render();
     }
 }

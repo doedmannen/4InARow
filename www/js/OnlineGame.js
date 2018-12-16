@@ -1,5 +1,29 @@
 class OnlineGame{
 
+  static async rectreateGame(gamePage){
+
+  }
+
+  static async onlineUpdate(game){
+    setInterval(async () => {
+      let game = await JSON._load('multiplaygames.json');
+      serverGame = game.find(elem => {
+        return elem['id'] === game.id;
+      });
+      if (serverGame['rounds'] !== game['rounds']){
+        OnlineGame.placeNewBrick(serverGame['latestMove'], game['board']);
+      }
+    }, 3000);
+    return '';
+  }
+
+  static placeNewBrick(latestMove, board){
+    let r = latestMove[r];
+    let c = latestMove[c];
+    let player = latestMove[playerID];
+    // update board
+  }
+
   static async gameID(){
     // Set string of 0-9 a-z A-Z
     let randoms = "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
@@ -55,8 +79,10 @@ class OnlineGame{
 
       // If loop is done, set new playerID to localStorage and return
       localStorage.playerID = playerID;
+      // Also store it on server
+      players.push({"name": "unknown", "id": playerID});
+      await JSON._save('play')
     }
-    console.log(playerID)
-    return playerID;
+    return ``;
   }
 }
